@@ -124,3 +124,19 @@
 /******************************************************************************/
 
 /* TODO Add interrupt routine code here. */
+void __attribute__((interrupt,auto_psv)) 	_ADC1Interrupt(void)               
+ {      
+    int i=0;
+    int *P=&ADCBUF0;
+    int x=0;
+    
+    
+for(i;i<16;i++) {
+   x+= *P++;
+}
+    PDC1=x/16;
+    
+    
+     IFS0bits.AD1IF=0;  
+    
+ }          
