@@ -37,7 +37,7 @@ int16_t main(void)
     ConfigureOscillator();
 
     /* Initialize IO ports and peripherals */
-    InitApp();
+    InitApp();hfhyfhy
 
     /* TODO <INSERT USER APPLICATION CODE HERE> */
 
