@@ -124,6 +124,24 @@
 /******************************************************************************/
 
 /* TODO Add interrupt routine code here. */
+int count =0;
+
+void __attribute__((interrupt,auto_psv)) 	_MPWM1Interrupt(void)  {
+    count^=1;
+    if(count==0)
+    {
+    P1DC1=3999;
+    P1DC2=2666;
+    P1DC3=1333;
+    }
+    else
+    {
+    P1DC1=0;
+    P1DC2=1333;
+    P1DC3=2666;
+    }
+    IFS3bits.PWM1IF=0;
+}
 void __attribute__((interrupt,auto_psv)) 	_ADC1Interrupt(void)               
  {      
     int i=0;

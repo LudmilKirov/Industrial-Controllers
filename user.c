@@ -49,10 +49,10 @@ void INITADC(){
     
 }
 void INITPWM(){
-    P1TPERbits.PTPER=1999;//zadavash chestota
-    P1DC1=1999;
-    P1DC2=1999;
-    P1DC3=1999;
+    P1TPERbits.PTPER=2000;//zadavash chestota
+    //P1DC1=1999;
+    //P1DC2=1999;
+    //P1DC3=1999;
     
     P1DTCON1bits.DTBPS=0;//da rabotish s tcy
     P1DTCON1bits.DTB=19;//da stane 500ns
@@ -65,5 +65,7 @@ void INITPWM(){
     PWM1CON1=0x00DD;
     P1TPER=1999;
     P1TMR=0x000;
+    P1TCONbits.PTMOD=3;
+    IEC3bits.PWM1IE=1;
     P1TCONbits.PTEN=1;
 }
