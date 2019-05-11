@@ -261,12 +261,12 @@ usercode
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBSÿÆ
+ __FBS.sec        0xf80000          0x2 /CW/_FBSH¨
                   0xf80000                  __FBS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS¯PÆ
+ __FGS.sec        0xf80004          0x2 /CW/_FGSù´
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -318,14 +318,14 @@ __FUID3
  .debug_abbrev    0x000200         0x8a build/C30_dsPIC33FJ256GP710A/production/traps.o
  .debug_abbrev    0x00028a         0xf0 build/C30_dsPIC33FJ256GP710A/production/user.o
 
-.debug_line       0x000000        0x480
+.debug_line       0x000000        0x482
  *(.debug_line)
  .debug_line      0x000000         0x1a build/C30_dsPIC33FJ256GP710A/production/configuration_bits.o
  .debug_line      0x00001a         0xfa build/C30_dsPIC33FJ256GP710A/production/interrupts.o
  .debug_line      0x000114         0x82 build/C30_dsPIC33FJ256GP710A/production/main.o
  .debug_line      0x000196         0xe9 build/C30_dsPIC33FJ256GP710A/production/system.o
  .debug_line      0x00027f         0xee build/C30_dsPIC33FJ256GP710A/production/traps.o
- .debug_line      0x00036d        0x113 build/C30_dsPIC33FJ256GP710A/production/user.o
+ .debug_line      0x00036d        0x115 build/C30_dsPIC33FJ256GP710A/production/user.o
 
 .debug_frame      0x000000        0x172
  *(.debug_frame)
@@ -1038,8 +1038,8 @@ LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/C30_dsPIC33FJ256GP710A/production/dspic33_c_template_1.X.production.elf elf32-pic30)
-LOAD /CW/_FGS¯PÆ
-LOAD /CW/_FBSÿÆ
+LOAD /CW/_FGSù´
+LOAD /CW/_FBSH¨
 LOAD data_init
 
 .debug_pubtypes

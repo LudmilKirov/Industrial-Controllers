@@ -15,7 +15,7 @@
 
 #include <stdint.h>        /* Includes uint16_t definition   */
 #include <stdbool.h>       /* Includes true/false definition */
-#define TPER 40000
+#define TPER 3300
 /******************************************************************************/
 /* Interrupt Vector Options                                                   */
 /******************************************************************************/
@@ -130,7 +130,7 @@ void __attribute__((interrupt,auto_psv)) 	_MPWM1Interrupt(void)  {
     count^=1;
     if(count==0)
     {
-    P1DC1=2*TPER;
+    P1DC1=2.0*TPER;
     P1DC2=1.33*TPER;
     P1DC3=0.66*TPER;
     }
