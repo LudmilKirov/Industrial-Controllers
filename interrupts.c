@@ -15,7 +15,7 @@
 
 #include <stdint.h>        /* Includes uint16_t definition   */
 #include <stdbool.h>       /* Includes true/false definition */
-
+#define TPER 40000
 /******************************************************************************/
 /* Interrupt Vector Options                                                   */
 /******************************************************************************/
@@ -130,15 +130,15 @@ void __attribute__((interrupt,auto_psv)) 	_MPWM1Interrupt(void)  {
     count^=1;
     if(count==0)
     {
-    P1DC1=3999;
-    P1DC2=2666;
-    P1DC3=1333;
+    P1DC1=2*TPER;
+    P1DC2=1.33*TPER;
+    P1DC3=0.66*TPER;
     }
     else
     {
     P1DC1=0;
-    P1DC2=1333;
-    P1DC3=2666;
+    P1DC2=0.66*TPER;
+    P1DC3=1.33*TPER;
     }
     IFS3bits.PWM1IF=0;
 }
@@ -152,7 +152,7 @@ void __attribute__((interrupt,auto_psv)) 	_ADC1Interrupt(void)
 for(i;i<16;i++) {
    x+= *P++;
 }
-    PDC1=x/16;
+  //  PDC1=x/16;
     
     
      IFS0bits.AD1IF=0;  
