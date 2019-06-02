@@ -78,21 +78,21 @@ xc16-ld 1.36 (B)
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0x136           0x1d1  (465)
-.text                        0x336                0xf2           0x16b  (363)
-.dinit                       0x428                 0x8             0xc  (12)
-.text                        0x430                 0x6             0x9  (9)
+.text                        0x200               0x148           0x1ec  (492)
+.dinit                       0x348               0x224           0x336  (822)
+.text                        0x56c               0x110           0x198  (408)
 
-                 Total "program" memory used (bytes):          0x351  (849) 2%
+                 Total "program" memory used (bytes):          0x6ba  (1722) 5%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x800]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                        0x800                   0             0x2  (2)
+.data                        0x800                   0           0x320  (800)
+.bss                         0xb20                   0             0x2  (2)
 
-                 Total "data" memory used (bytes):            0x2  (2) <1%
+                 Total "data" memory used (bytes):          0x322  (802) 39%
 
 
 Dynamic Memory Usage
@@ -100,18 +100,20 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x802                               0x7fe  (2046)
+stack                        0xb22                               0x4de  (1246)
 
-                 Maximum dynamic memory (bytes):          0x7fe  (2046)
+                 Maximum dynamic memory (bytes):          0x4de  (1246)
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0800                  _count
+                    0x0800                  _array0
+                    0x0b20                  _i
 
 External Symbols in Data Memory (by name):
 
-                    0x0800                  _count
+                    0x0800                  _array0
+                    0x0b20                  _i
 
 External Symbols in Program Memory (by address):
 
@@ -120,48 +122,48 @@ External Symbols in Program Memory (by address):
                   0x000252                  __data_init_standard
                   0x000252                  __data_init
                   0x0002c8                  __MPWM1Interrupt
-                  0x000302                  __ADC1Interrupt
-                  0x000312                  __OscillatorFail
-                  0x000316                  __AddressError
-                  0x00031a                  __StackError
-                  0x00031e                  __MathError
-                  0x000322                  __AltOscillatorFail
-                  0x000326                  __AltAddressError
-                  0x00032a                  __AltStackError
-                  0x00032e                  __AltMathError
-                  0x000332                  __DefaultInterrupt
-                  0x000336                  _InitApp
-                  0x000390                  _INITADC
-                  0x0003aa                  _INITPWM
-                  0x0003ec                  _ConfigureOscillator
-                  0x000430                  _main
+                  0x000314                  __ADC1Interrupt
+                  0x000324                  __OscillatorFail
+                  0x000328                  __AddressError
+                  0x00032c                  __StackError
+                  0x000330                  __MathError
+                  0x000334                  __AltOscillatorFail
+                  0x000338                  __AltAddressError
+                  0x00033c                  __AltStackError
+                  0x000340                  __AltMathError
+                  0x000344                  __DefaultInterrupt
+                  0x00056c                  _InitApp
+                  0x0005d0                  _INITADC
+                  0x0005ea                  _INITPWM
+                  0x000636                  _ConfigureOscillator
+                  0x000672                  _main
                   0xf80000                  __FBS.sec
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x0003ec                  _ConfigureOscillator
-                  0x000390                  _INITADC
-                  0x0003aa                  _INITPWM
-                  0x000336                  _InitApp
-                  0x000302                  __ADC1Interrupt
-                  0x000316                  __AddressError
-                  0x000326                  __AltAddressError
-                  0x00032e                  __AltMathError
-                  0x000322                  __AltOscillatorFail
-                  0x00032a                  __AltStackError
-                  0x000332                  __DefaultInterrupt
+                  0x000636                  _ConfigureOscillator
+                  0x0005d0                  _INITADC
+                  0x0005ea                  _INITPWM
+                  0x00056c                  _InitApp
+                  0x000314                  __ADC1Interrupt
+                  0x000328                  __AddressError
+                  0x000338                  __AltAddressError
+                  0x000340                  __AltMathError
+                  0x000334                  __AltOscillatorFail
+                  0x00033c                  __AltStackError
+                  0x000344                  __DefaultInterrupt
                   0xf80000                  __FBS.sec
                   0xf80004                  __FGS.sec
                   0x0002c8                  __MPWM1Interrupt
-                  0x00031e                  __MathError
-                  0x000312                  __OscillatorFail
-                  0x00031a                  __StackError
+                  0x000330                  __MathError
+                  0x000324                  __OscillatorFail
+                  0x00032c                  __StackError
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x000430                  _main
+                  0x000672                  _main
 
 Memory Configuration
 
@@ -222,7 +224,7 @@ LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0x136
+.text             0x000200        0x148
  *(.init)
  .init            0x000200         0x4c c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
@@ -234,39 +236,39 @@ LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0002c8         0x4a build/C30_dsPIC33FJ256GP710A/production/interrupts.o
+ .isr.text        0x0002c8         0x5c build/C30_dsPIC33FJ256GP710A/production/interrupts.o
                   0x0002c8                  __MPWM1Interrupt
-                  0x000302                  __ADC1Interrupt
- .isr.text        0x000312         0x22 build/C30_dsPIC33FJ256GP710A/production/traps.o
-                  0x000312                  __OscillatorFail
-                  0x000316                  __AddressError
-                  0x00031a                  __StackError
-                  0x00031e                  __MathError
-                  0x000322                  __AltOscillatorFail
-                  0x000326                  __AltAddressError
-                  0x00032a                  __AltStackError
-                  0x00032e                  __AltMathError
-                  0x000332                  __DefaultInterrupt
+                  0x000314                  __ADC1Interrupt
+ .isr.text        0x000324         0x22 build/C30_dsPIC33FJ256GP710A/production/traps.o
+                  0x000324                  __OscillatorFail
+                  0x000328                  __AddressError
+                  0x00032c                  __StackError
+                  0x000330                  __MathError
+                  0x000334                  __AltOscillatorFail
+                  0x000338                  __AltAddressError
+                  0x00033c                  __AltStackError
+                  0x000340                  __AltMathError
+                  0x000344                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x000334          0x2 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libpic30-elf.a(crt_start_mode_normal.eo)
-                  0x000334                  __crt_start_mode
-                  0x000334                  __crt_start_mode_normal
+                  0x000346          0x2 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libpic30-elf.a(crt_start_mode_normal.eo)
+                  0x000346                  __crt_start_mode
+                  0x000346                  __crt_start_mode_normal
 
 usercode
  *(usercode)
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBSH¨
+ __FBS.sec        0xf80000          0x2 /CW/_FBS∞˝®
                   0xf80000                  __FBS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGSù´
+ __FGS.sec        0xf80004          0x2 /CW/_FGSp}®
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -299,41 +301,41 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x1fdc
+.debug_info       0x000000       0x200f
  *(.debug_info)
  .debug_info      0x000000        0x11d build/C30_dsPIC33FJ256GP710A/production/configuration_bits.o
- .debug_info      0x00011d        0x40a build/C30_dsPIC33FJ256GP710A/production/interrupts.o
- .debug_info      0x000527        0x136 build/C30_dsPIC33FJ256GP710A/production/main.o
- .debug_info      0x00065d        0x76b build/C30_dsPIC33FJ256GP710A/production/system.o
- .debug_info      0x000dc8        0x3a8 build/C30_dsPIC33FJ256GP710A/production/traps.o
- .debug_info      0x001170        0xe6c build/C30_dsPIC33FJ256GP710A/production/user.o
+ .debug_info      0x00011d        0x43d build/C30_dsPIC33FJ256GP710A/production/interrupts.o
+ .debug_info      0x00055a        0x136 build/C30_dsPIC33FJ256GP710A/production/main.o
+ .debug_info      0x000690        0x76b build/C30_dsPIC33FJ256GP710A/production/system.o
+ .debug_info      0x000dfb        0x3a8 build/C30_dsPIC33FJ256GP710A/production/traps.o
+ .debug_info      0x0011a3        0xe6c build/C30_dsPIC33FJ256GP710A/production/user.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x37a
+.debug_abbrev     0x000000        0x38c
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x1f build/C30_dsPIC33FJ256GP710A/production/configuration_bits.o
- .debug_abbrev    0x00001f         0xea build/C30_dsPIC33FJ256GP710A/production/interrupts.o
- .debug_abbrev    0x000109         0x43 build/C30_dsPIC33FJ256GP710A/production/main.o
- .debug_abbrev    0x00014c         0xb4 build/C30_dsPIC33FJ256GP710A/production/system.o
- .debug_abbrev    0x000200         0x8a build/C30_dsPIC33FJ256GP710A/production/traps.o
- .debug_abbrev    0x00028a         0xf0 build/C30_dsPIC33FJ256GP710A/production/user.o
+ .debug_abbrev    0x00001f         0xfc build/C30_dsPIC33FJ256GP710A/production/interrupts.o
+ .debug_abbrev    0x00011b         0x43 build/C30_dsPIC33FJ256GP710A/production/main.o
+ .debug_abbrev    0x00015e         0xb4 build/C30_dsPIC33FJ256GP710A/production/system.o
+ .debug_abbrev    0x000212         0x8a build/C30_dsPIC33FJ256GP710A/production/traps.o
+ .debug_abbrev    0x00029c         0xf0 build/C30_dsPIC33FJ256GP710A/production/user.o
 
-.debug_line       0x000000        0x482
+.debug_line       0x000000        0x488
  *(.debug_line)
  .debug_line      0x000000         0x1a build/C30_dsPIC33FJ256GP710A/production/configuration_bits.o
- .debug_line      0x00001a         0xfa build/C30_dsPIC33FJ256GP710A/production/interrupts.o
- .debug_line      0x000114         0x82 build/C30_dsPIC33FJ256GP710A/production/main.o
- .debug_line      0x000196         0xe9 build/C30_dsPIC33FJ256GP710A/production/system.o
- .debug_line      0x00027f         0xee build/C30_dsPIC33FJ256GP710A/production/traps.o
- .debug_line      0x00036d        0x115 build/C30_dsPIC33FJ256GP710A/production/user.o
+ .debug_line      0x00001a         0xf6 build/C30_dsPIC33FJ256GP710A/production/interrupts.o
+ .debug_line      0x000110         0x82 build/C30_dsPIC33FJ256GP710A/production/main.o
+ .debug_line      0x000192         0xe9 build/C30_dsPIC33FJ256GP710A/production/system.o
+ .debug_line      0x00027b         0xee build/C30_dsPIC33FJ256GP710A/production/traps.o
+ .debug_line      0x000369        0x11f build/C30_dsPIC33FJ256GP710A/production/user.o
 
-.debug_frame      0x000000        0x172
+.debug_frame      0x000000        0x17c
  *(.debug_frame)
- .debug_frame     0x000000         0x42 build/C30_dsPIC33FJ256GP710A/production/interrupts.o
- .debug_frame     0x000042         0x24 build/C30_dsPIC33FJ256GP710A/production/main.o
- .debug_frame     0x000066         0x24 build/C30_dsPIC33FJ256GP710A/production/system.o
- .debug_frame     0x00008a         0xa4 build/C30_dsPIC33FJ256GP710A/production/traps.o
- .debug_frame     0x00012e         0x44 build/C30_dsPIC33FJ256GP710A/production/user.o
+ .debug_frame     0x000000         0x4c build/C30_dsPIC33FJ256GP710A/production/interrupts.o
+ .debug_frame     0x00004c         0x24 build/C30_dsPIC33FJ256GP710A/production/main.o
+ .debug_frame     0x000070         0x24 build/C30_dsPIC33FJ256GP710A/production/system.o
+ .debug_frame     0x000094         0xa4 build/C30_dsPIC33FJ256GP710A/production/traps.o
+ .debug_frame     0x000138         0x44 build/C30_dsPIC33FJ256GP710A/production/user.o
 
 .debug_str        0x000000         0xbb
  *(.debug_str)
@@ -349,18 +351,18 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x17c
+                  0x000000        0x183
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x43 build/C30_dsPIC33FJ256GP710A/production/interrupts.o
+                  0x000000         0x4a build/C30_dsPIC33FJ256GP710A/production/interrupts.o
  .debug_pubnames
-                  0x000043         0x1b build/C30_dsPIC33FJ256GP710A/production/main.o
+                  0x00004a         0x1b build/C30_dsPIC33FJ256GP710A/production/main.o
  .debug_pubnames
-                  0x00005e         0x2a build/C30_dsPIC33FJ256GP710A/production/system.o
+                  0x000065         0x2a build/C30_dsPIC33FJ256GP710A/production/system.o
  .debug_pubnames
-                  0x000088         0xbe build/C30_dsPIC33FJ256GP710A/production/traps.o
+                  0x00008f         0xbe build/C30_dsPIC33FJ256GP710A/production/traps.o
  .debug_pubnames
-                  0x000146         0x36 build/C30_dsPIC33FJ256GP710A/production/user.o
+                  0x00014d         0x36 build/C30_dsPIC33FJ256GP710A/production/user.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1038,8 +1040,8 @@ LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/C30_dsPIC33FJ256GP710A/production/dspic33_c_template_1.X.production.elf elf32-pic30)
-LOAD /CW/_FGSù´
-LOAD /CW/_FBSH¨
+LOAD /CW/_FGSp}®
+LOAD /CW/_FBS∞˝®
 LOAD data_init
 
 .debug_pubtypes
@@ -1076,9 +1078,13 @@ __c30_signature
  __c30_signature
                   0x00037f          0x6 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
 
-.nbss               0x0800          0x2
- .nbss              0x0800          0x2 build/C30_dsPIC33FJ256GP710A/production/interrupts.o
-                    0x0800                  _count
+.data               0x0800        0x320
+ .data              0x0800        0x320 build/C30_dsPIC33FJ256GP710A/production/interrupts.o
+                    0x0800                  _array0
+
+.bss                0x0b20          0x2
+ .bss               0x0b20          0x2 build/C30_dsPIC33FJ256GP710A/production/interrupts.o
+                    0x0b20                  _i
 
 .config_JTAGEN    0xf8000e          0x2
  .config_JTAGEN
@@ -1148,17 +1154,15 @@ __c30_signature
  .aivt._AltMathError
                   0x00010c          0x2 build/C30_dsPIC33FJ256GP710A/production/traps.o
 
-.text             0x000336         0xf2
- .text            0x000336         0xb6 build/C30_dsPIC33FJ256GP710A/production/user.o
-                  0x000336                  _InitApp
-                  0x000390                  _INITADC
-                  0x0003aa                  _INITPWM
- .text            0x0003ec         0x3c build/C30_dsPIC33FJ256GP710A/production/system.o
-                  0x0003ec                  _ConfigureOscillator
+.dinit            0x000348        0x224
+ .dinit           0x000348        0x224 data_init
 
-.dinit            0x000428          0x8
- .dinit           0x000428          0x8 data_init
-
-.text             0x000430          0x6
- .text            0x000430          0x6 build/C30_dsPIC33FJ256GP710A/production/main.o
-                  0x000430                  _main
+.text             0x00056c        0x110
+ .text            0x00056c         0xca build/C30_dsPIC33FJ256GP710A/production/user.o
+                  0x00056c                  _InitApp
+                  0x0005d0                  _INITADC
+                  0x0005ea                  _INITPWM
+ .text            0x000636         0x3c build/C30_dsPIC33FJ256GP710A/production/system.o
+                  0x000636                  _ConfigureOscillator
+ .text            0x000672          0xa build/C30_dsPIC33FJ256GP710A/production/main.o
+                  0x000672                  _main

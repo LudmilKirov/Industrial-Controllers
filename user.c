@@ -16,7 +16,7 @@
 #include <stdint.h>          /* For uint16_t definition                       */
 #include <stdbool.h>         /* For true/false definition                     */
 #include "user.h"            /* variables/params used by user.c               */
-#define TPER 3300
+#define TPER 2000
 /******************************************************************************/
 /* User Functions                                                             */
 /******************************************************************************/
@@ -45,11 +45,11 @@ void INITADC(){
     AD1CON2bits.SMPI=0xF;
     AD1CON3bits.ADCS=6;
     IEC0bits.AD1IE=1;
-     AD1CON1bits.ADON=1;
+    AD1CON1bits.ADON=1;
     
 }
 void INITPWM(){
-    P1TCONbits.PTCKPS=3; //divide by 64 
+    P1TCONbits.PTCKPS=0; //divide by 64 
     P1TPERbits.PTPER=TPER;//zadavash chestota
     //P1DC1=1999;
     //P1DC2=1999;
@@ -63,7 +63,16 @@ void INITPWM(){
     P1DTCON2bits.DTS2I=0;
     P1DTCON2bits.DTS1A=1;
     P1DTCON2bits.DTS1I=1;
-    PWM1CON1bits.PEN2H=1;
+    PWM1CON1bits.PEN1H=1;
+    
+    PWM1CON1bits.PEN1L=1;
+    
+    PWM1CON1bits.PEN2H=1;    
+    PWM1CON1bits.PEN2L=1;
+    
+    
+    PWM1CON1bits.PEN3H=1;
+    PWM1CON1bits.PEN3L=1;
     P1TPER=TPER;
     P1TMR=0x000;
     P1TCONbits.PTMOD=3;

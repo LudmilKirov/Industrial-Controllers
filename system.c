@@ -42,7 +42,7 @@ void ConfigureOscillator(void)
     //Fin/2
     CLKDIVbits.PLLPRE=0;
     //F2=F1*20
-    PLLFBDbits.PLLDIV=26;
+    PLLFBDbits.PLLDIV=18;
     //F3=F2/2
   CLKDIVbits.PLLPOST=0;
 
